@@ -29,8 +29,8 @@ node {
         failStage('Properties file does not exist')
       }
 
-      #File useFile = new File(propFile)
-      #properties.load(useFile.newDataInputStream())
+      // File useFile = new File(propFile)
+      // properties.load(useFile.newDataInputStream())
     }
 
 
