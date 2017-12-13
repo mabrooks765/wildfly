@@ -1,0 +1,58 @@
+
+PAR_ALWAYS_RUN=false
+
+#Possible values are POC, NPROD and PROD
+PAR_ENVIRONMENT=POC
+
+PAR_POC_EDR_DEPLOY=true
+PAR_NPROD_EDR_DEPLOY=true
+PAR_PROD_EDR_DEPLOY=true
+
+#PAR_SLACK_NOTIFICATIONS_CHANNEL=gicoe-paas-notice
+#PAR_SLACK_INPUT_CHANNEL=gicoe-paas-operations
+#PAR_SLACK_FAILURE_CHANNEL=gicoe-paas-operations
+
+
+# Base builder image
+#TODO: rename this variable to indicate the builder source. Do we need since we have PAR_BUILDER_SRC_IMAGE_DOCKER_REGISTRY
+PAR_EDR_HOST=edr.am.lilly.com
+PAR_BUILDER_OCP_TEMPLATE=docker-build-generic
+PAR_BUILDER_SRC_IMAGE_DOCKER_REGISTRY=edr.am.lilly.com
+PAR_BUILDER_SRC_IMAGE_REPOSITORY=rhscl
+PAR_BUILDER_SRC_IMAGE_NAME=nodejs-6-rhel7
+PAR_BUILDER_SRC_IMAGE_TAG=latest
+PAR_BUILDER_SRC_IMAGE_KUBE_OBJECT_NAME=nodejs-6-builder
+
+
+# New builder image
+PAR_BUILDER_DEST_IMAGE_KUBE_OBJECT_NAME=nodejs-6-oracle-rhel7
+PAR_BUILDER_DEST_IMAGE_TAG=latest
+PAR_BUILDER_DEST_GIT_REF=master
+PAR_BUILDER_DEST_GIT_CONTEXT_DIR=docker-builds/nodejs6-oracledb
+PAR_BUILDER_DEST_GIT_URI=git@github.com:EliLillyCo/GIS_IIHS_Jenkins-Image-Build-Pipeline.git
+PAR_BUILDER_DEST_GIT_SOURCE_SECRET=ghsecret-dest-builder
+PAR_BUILDER_DEST_WEBSERVER=openshift-static.paas.am.lilly.com
+PAR_BUILDER_DEST_EDR_REPOSITORY=iihs
+
+# Verification application
+#PAR_VER_APP_KUBE_NAME=nodejs6-oracledb-ver-app
+#PAR_VER_APP_SOURCE_REPOSITORY_URL=git@github.com:EliLillyCo/GIS_IIHS_NodeJS-Oracle-App.git
+#PAR_VER_APP_SOURCE_REPOSITORY_SOURCE_SECRET=ghsecret-ver-app
+#PAR_VER_APP_ORACLEDB_CONNECTION_STRING=40.1.255.36:1546/tst131
+#PAR_VER_APP_ORACLEDB_TABLE=UNIX_ODS_HOST_CUSTOMERS
+#PAR_VER_APP_JENKINS_ORACLEDB_USERNAME_PASSWORD_ID=ver-app-oracledb-username-password
+#PAR_VER_APP_RESPONSE_TEXT=SOURABH
+
+#EDR - IDR PROMOTION VARIABLES
+PAR_EDR_POC_HOST=edr-poc.am.lilly.com
+PAR_EDR_NPROD_HOST=edr-np.am.lilly.com
+PAR_EDR_PROD_HOST=edr.am.lilly.com
+PAR_EDR_RW_POC_HOST=edr-rw-poc.am.lilly.com
+PAR_EDR_RW_NPROD_HOST=edr-rw-np.am.lilly.com
+PAR_EDR_RW_PROD_HOST=edr-rw.am.lilly.com
+PAR_EDR_PROMOTE_SCRIPT_LOCATION=scripts/execute_image_promotion.py
+PAR_EDR_JENKINS_DEPLOYMENT_CREDENTIAL_ID=edr-openshift-deployment-account
+PAR_IDR_SERVICE_ACCOUNT_TOKEN_JENKINS_DEPLOYMENT_CREDENTIAL_ID=image-promoter-sa
+PAR_IDR_POC_HOST=integrated-registry.paas-poc.am.lilly.com:443
+PAR_IDR_NPROD_HOST=integrated-registry.paas-np.am.lilly.com:443
+PAR_IDR_PROD_HOST=integrated-registry.paas.am.lilly.com:443
