@@ -29,10 +29,8 @@ node {
         failStage('Properties file does not exist')
       }
 
-      File useFile = new File('wildfly/jb7-oracleds.prop')
-      useFile.withInputStream {
-        properties.load(it)
-      }
+      File useFile = new File(propFile)
+      properties.load(useFile.newDataInputStream())
     }
 
 
