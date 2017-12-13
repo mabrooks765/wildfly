@@ -46,3 +46,9 @@ node {
     }
 
 }
+
+def failStage(message) {
+    //currentBuild.result = 'FAIL'
+    //return
+    error(message)
+}
