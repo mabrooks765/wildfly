@@ -33,6 +33,11 @@ node {
       // properties.load(useFile.newDataInputStream())
     }
 
+    stage('Check registry for changes') {
+      DIGEST_FILE = "$WORKSPACE/digest.txt"
+      sh "echo $DIGEST_FILE"
+    }
+
 
   }
 
