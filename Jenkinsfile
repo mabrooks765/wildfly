@@ -28,7 +28,7 @@ node {
       else {
         failStage('Properties file does not exist')
       }
-      
+
       File propFile = new File('jb7-oracleds.prop')
       propFile.withInputStream {
         properties.load(it)
@@ -38,5 +38,11 @@ node {
 
   }
 
+  catch (e) {
+        echo "In catch block"
+        println(e.toString())
+        failStage('Pipeline build failure')
+
+    }
 
 }
