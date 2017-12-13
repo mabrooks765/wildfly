@@ -29,8 +29,8 @@ node {
         failStage('Properties file does not exist')
       }
 
-      File propFile = new File('jb7-oracleds.prop')
-      propFile.withInputStream {
+      File useFile = new File(propFile)
+      useFile.withInputStream {
         properties.load(it)
       }
     }
