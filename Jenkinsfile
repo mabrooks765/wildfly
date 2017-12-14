@@ -19,11 +19,11 @@ node {
 
       println('Read in properties file')
       Properties properties = new Properties()
-      propFile = "jb7oracleds.properties"
+      propFile = "$WORKSPACE/jb7oracleds.properties"
 
       if(fileExists(propFile)) {
         println('Properties file exists')
-        sh "pwd; ls -al; cat ${propFile}"
+        sh "cat ${propFile}"
       }
       else {
         failStage('Properties file does not exist')
