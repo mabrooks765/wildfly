@@ -32,7 +32,7 @@ node {
       File useFile = new File(propFile)
       properties.load(useFile.newDataInputStream())
 
-      println properties.OCP_PROJECT
+      println properties.PAR_ENVIRONMENT
       //openshift.withCluster() {
       //  properties.'OCP_PROJECT'
       //}
