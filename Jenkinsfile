@@ -32,10 +32,50 @@ node {
       File useFile = new File(propFile)
       properties.load(useFile.newDataInputStream())
 
-      println properties.PAR_ENVIRONMENT
-      //openshift.withCluster() {
-      //  properties.'OCP_PROJECT'
-      //}
+      openshift.withCluster() {
+        OCP_PROJECT = openshift.project()
+      }
+
+      /*Set ALWAYS_RUN to a boolean value*/
+      if (properties."PAR_ALWAYS_RUN" == "true") {
+          ALWAYS_RUN = true
+      } else {
+          ALWAYS_RUN = false
+      }
+
+      if (properties."PAR_POC_EDR_DEPLOY" == "true") {
+          POC_EDR_DEPLOY = true
+      } else {
+          POC_EDR_DEPLOY = false
+      }
+
+      if (properties."PAR_NPROD_EDR_DEPLOY" == "true") {
+          NPROD_EDR_DEPLOY = true
+      } else {
+          NPROD_EDR_DEPLOY = false
+      }
+
+      if (properties."PAR_PROD_EDR_DEPLOY" == "true") {
+          PROD_EDR_DEPLOY = true
+      } else {
+          PROD_EDR_DEPLOY = false
+      }
+
+      /*Set the EDR and IDR host based off the environment variable*/
+      if (ENVIRONMENT == "POC") {
+          EDR_HOST = EDR_POC_HOST
+          IDR_SRC_HOST = IDR_POC_HOST
+      }
+      else if (ENVIRONMENT == "NPROD") {
+          EDR_HOST = EDR_NPROD_HOST
+          IDR_SRC_HOST = IDR_NPROD_HOST
+      }
+      else if (ENVIRONMENT == "PROD") {
+          EDR_HOST = EDR_PROD_HOST
+          IDR_SRC_HOST = IDR_PROD_HOST
+      } else {
+          failStage('Need to set proper environment variable')
+      }
     }
 
     /* stage('Check registry for changes') {
