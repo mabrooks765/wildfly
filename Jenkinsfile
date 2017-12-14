@@ -65,16 +65,16 @@ node {
 
       /*Set the EDR and IDR host based off the environment variable*/
       if (ENVIRONMENT == "POC") {
-          EDR_HOST = EDR_POC_HOST
-          IDR_SRC_HOST = IDR_POC_HOST
+          EDR_HOST = properties.PAR_EDR_POC_HOST
+          IDR_SRC_HOST = properties.PAR_IDR_POC_HOST
       }
       else if (ENVIRONMENT == "NPROD") {
-          EDR_HOST = EDR_NPROD_HOST
-          IDR_SRC_HOST = IDR_NPROD_HOST
+          EDR_HOST = properties.PAR_EDR_NPROD_HOST
+          IDR_SRC_HOST = properties.PAR_IDR_NPROD_HOST
       }
       else if (ENVIRONMENT == "PROD") {
-          EDR_HOST = EDR_PROD_HOST
-          IDR_SRC_HOST = IDR_PROD_HOST
+          EDR_HOST = properties.PAR_EDR_PROD_HOST
+          IDR_SRC_HOST = properties.PAR_IDR_PROD_HOST
       } else {
           failStage('Need to set proper environment variable')
       }
