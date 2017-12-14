@@ -19,7 +19,7 @@ node {
 
       println('Read in properties file')
       Properties properties = new Properties()
-      propFile = "wildfly/jb7oracleds.prop"
+      propFile = "jb7oracleds.properties"
 
       if(fileExists(propFile)) {
         println('Properties file exists')
