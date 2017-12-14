@@ -120,21 +120,22 @@ node {
               println('DEBUG: Previous run digest is the same. Exiting pipeline and marking it as a success.')
               NOTHING_TO_DO = true
               return
-
-          } else {
-              //Write new digest file out
-              println('DEBUG: previous and current digest do NOT match. Writing new digest file. Proceeding with next step in pipeline')
-              def digest_file = new File(DIGEST_FILE)
-              digest_file.write(image_digest)
-
-              //TODO get list of tags associated with this. Sort then use the highest value as the upstream tag
-              /*latest_tag = getLatestImageTag(
-                      EDR_HOST: EDR_PROD_HOST,
-                      IMAGE_REPOSITORY: BUILDER_SRC_IMAGE_REPOSITORY,
-                      IMAGE_NAME: BUILDER_SRC_IMAGE_NAME
-                  )*/
-
           }
+
+        } else {
+          //Write new digest file out
+          println('DEBUG: previous and current digest do NOT match. Writing new digest file. Proceeding with next step in pipeline')
+          def digest_file = new File(DIGEST_FILE)
+          digest_file.write(image_digest)
+
+          //TODO get list of tags associated with this. Sort then use the highest value as the upstream tag
+          /*latest_tag = getLatestImageTag(
+                  EDR_HOST: EDR_PROD_HOST,
+                  IMAGE_REPOSITORY: BUILDER_SRC_IMAGE_REPOSITORY,
+                  IMAGE_NAME: BUILDER_SRC_IMAGE_NAME
+              )*/
+
+        }
 
       } else {
           println('DEBUG: Previous digest does not exist. Writing new digest file. Proceeding with next step in pipeline')
