@@ -148,7 +148,8 @@ node {
       }
 
       println('End of stage')
-    }*/
+    }
+    */
 
 
     /*
@@ -162,7 +163,7 @@ node {
         return
     }
 
-    }
+  }
 
 
   catch (e) {
@@ -170,7 +171,7 @@ node {
         println(e.toString())
         failStage('Pipeline build failure')
 
-    }
+  }
 
 }
 
