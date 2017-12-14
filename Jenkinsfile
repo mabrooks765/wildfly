@@ -29,13 +29,17 @@ node {
         failStage('Properties file does not exist')
       }
 
-      // File useFile = new File(propFile)
-      // properties.load(useFile.newDataInputStream())
+      File useFile = new File(propFile)
+      properties.load(useFile.newDataInputStream())
     }
 
     stage('Check registry for changes') {
       DIGEST_FILE = "$WORKSPACE/digest.txt"
-      sh "echo $DIGEST_FILE"
+
+      NOTHING_TO_DO = false
+
+      latest_tag = getLatestImageTagName(
+                      )
     }
 
 
