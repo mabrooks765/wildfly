@@ -82,7 +82,8 @@ node {
       }
     }
 
-    /* stage('Check registry for changes') {
+    /*
+    stage('Check registry for changes') {
       DIGEST_FILE = "$WORKSPACE/digest.txt"
 
       NOTHING_TO_DO = false
@@ -127,11 +128,11 @@ node {
             digest_file.write(image_digest)
 
             //TODO get list of tags associated with this. Sort then use the highest value as the upstream tag
-            /*latest_tag = getLatestImageTag(
-                    EDR_HOST: EDR_PROD_HOST,
-                    IMAGE_REPOSITORY: BUILDER_SRC_IMAGE_REPOSITORY,
-                    IMAGE_NAME: BUILDER_SRC_IMAGE_NAME
-                )*/
+            //latest_tag = getLatestImageTag(
+            //        EDR_HOST: EDR_PROD_HOST,
+            //        IMAGE_REPOSITORY: BUILDER_SRC_IMAGE_REPOSITORY,
+            //        IMAGE_NAME: BUILDER_SRC_IMAGE_NAME
+            //    )
 
           }
 
@@ -140,11 +141,11 @@ node {
           def digest_file = new File(DIGEST_FILE)
           digest_file.write(image_digest)
           //TODO: See the above if/else block
-          /*latest_tag = getLatestImageTag(
-                  EDR_HOST: EDR_PROD_HOST,
-                  IMAGE_REPOSITORY: BUILDER_SRC_IMAGE_REPOSITORY,
-                  IMAGE_NAME: BUILDER_SRC_IMAGE_NAME
-              )*/
+          //latest_tag = getLatestImageTag(
+          //        EDR_HOST: EDR_PROD_HOST,
+          //        IMAGE_REPOSITORY: BUILDER_SRC_IMAGE_REPOSITORY,
+          //        IMAGE_NAME: BUILDER_SRC_IMAGE_NAME
+          //    )
       }
 
       println('End of stage')
