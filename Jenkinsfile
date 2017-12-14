@@ -38,14 +38,14 @@ node {
       //}
     }
 
-    stage('Check registry for changes') {
+    /* stage('Check registry for changes') {
       DIGEST_FILE = "$WORKSPACE/digest.txt"
 
       NOTHING_TO_DO = false
 
       latest_tag = getLatestImageTagName(
                       )
-    }
+    } */
 
 
   }
