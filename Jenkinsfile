@@ -32,6 +32,8 @@ node {
       File useFile = new File(propFile)
       properties.load(useFile.newDataInputStream())
 
+      ENVIRONMENT = properties."PAR_ENVIRONMENT"
+
       openshift.withCluster() {
         OCP_PROJECT = openshift.project()
       }
