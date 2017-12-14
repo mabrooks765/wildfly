@@ -31,6 +31,11 @@ node {
 
       File useFile = new File(propFile)
       properties.load(useFile.newDataInputStream())
+
+      println properties.OCP_PROJECT
+      //openshift.withCluster() {
+      //  properties.'OCP_PROJECT'
+      //}
     }
 
     stage('Check registry for changes') {
