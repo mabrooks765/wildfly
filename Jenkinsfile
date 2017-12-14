@@ -157,12 +157,13 @@ node {
     Per https://devops.stackexchange.com/questions/885/cleanest-way-to-prematurely-exit-a-jenkins-pipeline-job-as-a-success
     this has to be ran outside of a stage. If the digest is the same there is no need to continue with the builds. Pass the build.
     */
-    if (NOTHING_TO_DO) {
+    /*if (NOTHING_TO_DO) {
         println('DEBUG: digest comparison is true. Nothing to build')
         currentBuild.result = 'SUCCESS'
         slackNotifyMessage('Job completed. No image updates from Red Hat.')
         return
     }
+    */
 
   }
 
