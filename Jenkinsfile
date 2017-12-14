@@ -23,7 +23,7 @@ node {
 
       if(fileExists(propFile)) {
         println('Properties file exists')
-        sh "cat ${propFile}"
+        sh "pwd; cat ${propFile}"
       }
       else {
         failStage('Properties file does not exist')
